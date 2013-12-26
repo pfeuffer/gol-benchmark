@@ -1,6 +1,6 @@
 package de.pfeufferweb.gol.benchmark;
 
-public class FakeGolSpy {
+public class FakeGolSpy implements Gol {
 
     static boolean instantiated = false;
 

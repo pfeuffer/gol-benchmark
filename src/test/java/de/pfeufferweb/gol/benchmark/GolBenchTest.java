@@ -4,9 +4,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import de.pfeufferweb.gol.benchmark.GolBench;
-import de.pfeufferweb.gol.benchmark.IllegalGolException;
-
 public class GolBenchTest {
     @Test
     public void instantiatesGivenGolClass() {
@@ -17,5 +14,10 @@ public class GolBenchTest {
     @Test(expected = IllegalGolException.class)
     public void illegalGolClassCreatesAppropriateException() {
         new GolBench("no.such.class");
+    }
+
+    @Test(expected = IllegalGolInterfaceException.class)
+    public void givenGolClassMustBeAValidGol() {
+        new GolBench("de.pfeufferweb.gol.benchmark.FakeGolThatIsNoGol");
     }
 }
