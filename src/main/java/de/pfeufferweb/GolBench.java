@@ -1,7 +1,10 @@
 package de.pfeufferweb;
 
 public class GolBench {
-	public static void main(String[] args) {
+    public GolBench(String golClassName) {
+    }
 
-	}
+    public static void main(String[] args) {
+
+    }
 }
