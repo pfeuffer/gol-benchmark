@@ -10,4 +10,9 @@ public class GolBenchTest {
         new GolBench("de.pfeufferweb.FakeGolSpy");
         assertTrue("gol instance not instantiated", FakeGolSpy.instantiated);
     }
+
+    @Test(expected = IllegalGolException.class)
+    public void illegalGolClassCreatesAppropriateException() {
+        new GolBench("no.such.class");
+    }
 }
