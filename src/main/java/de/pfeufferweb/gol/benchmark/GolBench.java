@@ -3,9 +3,12 @@ package de.pfeufferweb.gol.benchmark;
 public class GolBench {
     public GolBench(String golClassName) {
         try {
-            Class golClassUnderTest = Class.forName(golClassName);
-            Object golUnderTest = golClassUnderTest.getConstructor()
-                    .newInstance();
+            @SuppressWarnings("unchecked")
+            Class<Gol> golClassUnderTest = (Class<Gol>) Class
+                    .forName(golClassName);
+            Gol golUnderTest = golClassUnderTest.getConstructor().newInstance();
+        } catch (ClassCastException e) {
+            throw new IllegalGolInterfaceException();
         } catch (Exception e) {
             throw new IllegalGolException(e);
         }
