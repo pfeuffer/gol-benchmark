@@ -1,4 +1,4 @@
-package de.pfeufferweb;
+package de.pfeufferweb.gol.benchmark;
 
 public class FakeGolSpy {
 

@@ -1,4 +1,4 @@
-package de.pfeufferweb;
+package de.pfeufferweb.gol.benchmark;
 
 public class IllegalGolException extends RuntimeException {
     public IllegalGolException(Throwable cause) {
