@@ -1,5 +1,6 @@
 package de.pfeufferweb.gol.benchmark;
 
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -29,5 +30,11 @@ public class GolGliderBenchTest {
         verify(golSpy).addCell(-1, 1);
         verify(golSpy).addCell(-1, 0);
         verify(golSpy).addCell(-1, -1);
+    }
+
+    @Test
+    public void callsGivenGolAMillionTimes() {
+        underTest.start();
+        verify(golSpy, times(1000000)).next();
     }
 }

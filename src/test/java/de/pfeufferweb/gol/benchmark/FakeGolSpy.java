@@ -11,4 +11,8 @@ public class FakeGolSpy implements Gol {
     @Override
     public void addCell(int x, int y) {
     }
+
+    @Override
+    public void next() {
+    }
 }
