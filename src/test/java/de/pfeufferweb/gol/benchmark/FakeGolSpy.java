@@ -7,4 +7,8 @@ public class FakeGolSpy implements Gol {
     public FakeGolSpy() {
         instantiated = true;
     }
+
+    @Override
+    public void addCell(int x, int y) {
+    }
 }
