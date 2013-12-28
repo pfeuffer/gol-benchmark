@@ -16,5 +16,9 @@ public class GolGliderBench {
         gol.addCell(-1, 1);
         gol.addCell(-1, 0);
         gol.addCell(-1, -1);
+
+        for (int i = 0; i < 1000000; ++i) {
+            gol.next();
+        }
     }
 }
