@@ -11,7 +11,10 @@ public class GolGliderBench {
     }
 
     public void start() {
-
+        gol.addCell(1, 0);
+        gol.addCell(0, 1);
+        gol.addCell(-1, 1);
+        gol.addCell(-1, 0);
+        gol.addCell(-1, -1);
     }
-
 }
