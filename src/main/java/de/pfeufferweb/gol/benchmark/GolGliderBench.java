@@ -3,7 +3,7 @@ package de.pfeufferweb.gol.benchmark;
 /**
  * Initializes the given GOL with a simple glider and lets it fly.
  */
-public class GolGliderBench {
+public class GolGliderBench implements GolSingleBench {
     private final Gol gol;
 
     public GolGliderBench(Gol gol) {
