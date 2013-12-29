@@ -20,4 +20,10 @@ public class GolBenchTest {
     public void givenGolClassMustBeAValidGol() {
         new GolBench("de.pfeufferweb.gol.benchmark.FakeGolThatIsNoGol");
     }
+
+    @Test
+    public void createsABenchRunner() {
+        new GolBench("de.pfeufferweb.gol.benchmark.FakeGolSpy");
+        assertTrue("next not called", FakeGolSpy.nextCalled);
+    }
 }

@@ -3,6 +3,7 @@ package de.pfeufferweb.gol.benchmark;
 public class FakeGolSpy implements Gol {
 
     static boolean instantiated = false;
+    static boolean nextCalled = false;
 
     public FakeGolSpy() {
         instantiated = true;
@@ -14,5 +15,6 @@ public class FakeGolSpy implements Gol {
 
     @Override
     public void next() {
+        nextCalled = true;
     }
 }
