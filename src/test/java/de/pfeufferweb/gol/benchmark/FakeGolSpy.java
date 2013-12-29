@@ -14,7 +14,8 @@ public class FakeGolSpy implements Gol {
     }
 
     @Override
-    public void next() {
+    public Gol next() {
         nextCalled = true;
+        return this;
     }
 }

@@ -4,5 +4,5 @@ public interface Gol {
 
     void addCell(int x, int y);
 
-    void next();
+    Gol next();
 }
