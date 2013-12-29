@@ -10,7 +10,7 @@ public class GolTestRunnerTest {
     public void runsGivenBenchWithGivenGol() {
         Gol gol = mock(Gol.class);
         GolSingleBench bench = mock(GolSingleBench.class);
-        GolBenchRunner testRunner = new GolBenchRunner(bench, gol);
+        GolBenchRunner testRunner = new GolBenchRunner(bench);
         testRunner.run();
         verify(bench).start();
     }
