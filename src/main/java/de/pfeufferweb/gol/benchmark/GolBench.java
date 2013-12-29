@@ -22,6 +22,6 @@ public class GolBench {
     }
 
     public static void main(String[] args) {
-
+        new GolBench(args[0]).run();
     }
 }
