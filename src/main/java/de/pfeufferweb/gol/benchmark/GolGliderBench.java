@@ -19,7 +19,7 @@ public class GolGliderBench implements GolSingleBench {
 
         Gol nextGol = gol;
         for (int i = 0; i < 1000000; ++i) {
-            nextGol = gol.next();
+            nextGol = nextGol.next();
         }
     }
 }

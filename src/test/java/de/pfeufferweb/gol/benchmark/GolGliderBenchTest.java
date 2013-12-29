@@ -3,6 +3,7 @@ package de.pfeufferweb.gol.benchmark;
 import static org.junit.Assert.fail;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 import org.junit.Before;
@@ -38,6 +39,7 @@ public class GolGliderBenchTest {
     @Before
     public void inject() {
         initMocks(this);
+        when(golSpy.next()).thenReturn(golSpy);
     }
 
     @Test
