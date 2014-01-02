@@ -7,8 +7,9 @@ import org.junit.Test;
 public class GolBenchTest {
     @Test
     public void instantiatesGivenGolClass() {
-        new GolBench("de.pfeufferweb.gol.benchmark.FakeGolSpy");
-        assertTrue("gol instance not instantiated", FakeGolSpy.instantiated);
+        new GolBench("de.pfeufferweb.gol.benchmark.FakeGolBuilderSpy");
+        assertTrue("gol instance not instantiated",
+                FakeGolBuilderSpy.instantiated);
     }
 
     @Test(expected = IllegalGolException.class)
@@ -23,7 +24,7 @@ public class GolBenchTest {
 
     @Test
     public void createsABenchRunner() {
-        new GolBench("de.pfeufferweb.gol.benchmark.FakeGolSpy");
-        assertTrue("next not called", FakeGolSpy.nextCalled);
+        new GolBench("de.pfeufferweb.gol.benchmark.FakeGolBuilderSpy");
+        assertTrue("next not called", FakeGolBuilderSpy.createCalled);
     }
 }

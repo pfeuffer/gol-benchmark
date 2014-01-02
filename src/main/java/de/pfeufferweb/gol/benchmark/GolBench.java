@@ -1,12 +1,12 @@
 package de.pfeufferweb.gol.benchmark;
 
 public class GolBench {
-    private final Gol golUnderTest;
+    private final GolBuilder golUnderTest;
 
     public GolBench(String golClassName) {
         try {
             @SuppressWarnings("unchecked")
-            Class<Gol> golClassUnderTest = (Class<Gol>) Class
+            Class<GolBuilder> golClassUnderTest = (Class<GolBuilder>) Class
                     .forName(golClassName);
             golUnderTest = golClassUnderTest.getConstructor().newInstance();
             run();

@@ -17,10 +17,6 @@ public class GolGliderBenchTest {
         private boolean nextCalled = false;
 
         @Override
-        public void addCell(int x, int y) {
-        }
-
-        @Override
         public Gol next() {
             if (nextCalled) {
                 fail(" next called multiple times");
@@ -30,6 +26,19 @@ public class GolGliderBenchTest {
         }
     }
 
+    private static class OnlyOnceCalledGolBuilder implements GolBuilder {
+        @Override
+        public void addCell(int x, int y) {
+        }
+
+        @Override
+        public Gol create() {
+            return new OnlyOnceCalledGol();
+        }
+    }
+
+    @Mock
+    private GolBuilder golBuilderSpy;
     @Mock
     private Gol golSpy;
 
@@ -40,16 +49,18 @@ public class GolGliderBenchTest {
     public void inject() {
         initMocks(this);
         when(golSpy.next()).thenReturn(golSpy);
+        when(golBuilderSpy.create()).thenReturn(golSpy);
     }
 
     @Test
     public void initializesGivenGolWithAGlider() {
         underTest.start();
-        verify(golSpy).addCell(1, 0);
-        verify(golSpy).addCell(0, 1);
-        verify(golSpy).addCell(-1, 1);
-        verify(golSpy).addCell(-1, 0);
-        verify(golSpy).addCell(-1, -1);
+        verify(golBuilderSpy).addCell(1, 0);
+        verify(golBuilderSpy).addCell(0, 1);
+        verify(golBuilderSpy).addCell(-1, 1);
+        verify(golBuilderSpy).addCell(-1, 0);
+        verify(golBuilderSpy).addCell(-1, -1);
+        verify(golBuilderSpy).create();
     }
 
     @Test
@@ -61,7 +72,7 @@ public class GolGliderBenchTest {
     @Test
     public void callsNextOnNewGenerations() {
         // overwrite test object with different test object to use another gol
-        underTest = new GolGliderBench(new OnlyOnceCalledGol());
+        underTest = new GolGliderBench(new OnlyOnceCalledGolBuilder());
         underTest.start();
     }
 }
