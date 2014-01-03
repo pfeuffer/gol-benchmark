@@ -16,6 +16,26 @@ public class ArrayRepresentationTest {
         public boolean isAlive(int x, int y) {
             return x == 3;
         }
+
+        @Override
+        public int minX() {
+            return 0;
+        }
+
+        @Override
+        public int maxX() {
+            return 0;
+        }
+
+        @Override
+        public int minY() {
+            return 0;
+        }
+
+        @Override
+        public int maxY() {
+            return 0;
+        }
     };
 
     @Test
