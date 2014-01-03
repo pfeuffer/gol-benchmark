@@ -25,26 +25,26 @@ public class ArrayRepresentationTest {
     }
 
     @Test
-    public void createsOForEmptyGolArrayOf1by1() {
-        assertEquals("O",
+    public void createsDotForEmptyGolArrayOf1by1() {
+        assertEquals("•",
                 new ArrayRepresentation(new GolMock()).print(0, 1, 0, 1));
     }
 
     @Test
-    public void createsOsForEmptyGolArrayOf3by1() {
-        assertEquals("OOO",
+    public void createsThreeDotsForEmptyGolArrayOf3by1() {
+        assertEquals("•••",
                 new ArrayRepresentation(new GolMock()).print(0, 3, 0, 1));
     }
 
     @Test
-    public void createsMultipleLinesOfOsForEmptyGolArrayOf3by3() {
-        assertEquals("OOO\nOOO\nOOO",
+    public void createsMultipleLinesOfDotsForEmptyGolArrayOf3by3() {
+        assertEquals("•••\n•••\n•••",
                 new ArrayRepresentation(new GolMock()).print(0, 3, 0, 3));
     }
 
     @Test
     public void createsXForAliveCellsInGol() {
-        assertEquals("OOOX\nOOOX\nOOOX",
+        assertEquals("•••X\n•••X\n•••X",
                 new ArrayRepresentation(new GolMock()).print(0, 4, 0, 3));
     }
 }

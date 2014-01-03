@@ -1,6 +1,9 @@
 package de.pfeufferweb.gol.benchmark;
 
 public class ArrayRepresentation {
+    private static final String DEAD = "•";
+    private static final String ALIVE = "X";
+
     private final Gol gol;
 
     public ArrayRepresentation(Gol gol) {
@@ -11,7 +14,7 @@ public class ArrayRepresentation {
         StringBuilder builder = new StringBuilder();
         for (int y = yFrom; y < yTo; ++y) {
             for (int x = xFrom; x < xTo; ++x) {
-                builder.append(gol.isAlive(x, y) ? "X" : "O");
+                builder.append(gol.isAlive(x, y) ? ALIVE : DEAD);
             }
             builder.append("\n");
         }
