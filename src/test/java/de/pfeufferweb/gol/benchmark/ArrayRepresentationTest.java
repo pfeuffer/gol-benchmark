@@ -20,6 +20,6 @@ public class ArrayRepresentationTest {
 
     @Test
     public void createsEmptyStringForEmptyArray() {
-        assertEquals("", new ArrayRepresentation().print(new GolMock()));
+        assertEquals("", new ArrayRepresentation(new GolMock()).print());
     }
 }

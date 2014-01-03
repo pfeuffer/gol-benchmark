@@ -2,7 +2,10 @@ package de.pfeufferweb.gol.benchmark;
 
 public class ArrayRepresentation {
 
-    public String print(Gol gol) {
+    public ArrayRepresentation(Gol gol) {
+    }
+
+    public String print() {
         return "";
     }
 
