@@ -9,8 +9,8 @@ public class GolBenchRunnerTest {
     @Test
     public void runsGivenBenchWithGivenGol() {
         GolSingleBench bench = mock(GolSingleBench.class);
-        GolBenchRunner benchRunner = new GolBenchRunner(bench);
-        benchRunner.run();
-        verify(bench).start();
+        GolBenchRunner benchRunner = new GolBenchRunner();
+        benchRunner.run(bench, null);
+        verify(bench).start(null);
     }
 }

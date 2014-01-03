@@ -5,14 +5,10 @@ public class GolChecker implements GolSingleBench {
             { 0, 1 }, { 0, -1 }, { -2, 0 }, { -1, 1 }, { -1, 0 } });
     private static final Gol SECOND_ITERATION = new StaticGol(new int[][] {
             { -1, -1 }, { -2, 0 }, { -2, 1 }, { -1, 1 }, { 0, 1 } });
-    private final GolBuilderAdapter golBuilderAdapter;
-
-    public GolChecker(GolBuilder golBuilder) {
-        this.golBuilderAdapter = new GolBuilderAdapter(golBuilder);
-    }
 
     @Override
-    public void start() {
+    public void start(GolBuilder golBuilder) {
+        GolBuilderAdapter golBuilderAdapter = new GolBuilderAdapter(golBuilder);
         golBuilderAdapter.add(new int[][] { { 1, 0 }, { 0, 1 }, { -1, 1 },
                 { -1, 0 }, { -1, -1 } });
         Gol gol = golBuilderAdapter.create();

@@ -9,7 +9,6 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 public class GolGliderBenchTest {
@@ -48,8 +47,7 @@ public class GolGliderBenchTest {
     @Mock
     private Gol golSpy;
 
-    @InjectMocks
-    private GolGliderBench underTest;
+    private GolGliderBench underTest = new GolGliderBench();
 
     @Before
     public void inject() {
@@ -61,7 +59,7 @@ public class GolGliderBenchTest {
 
     @Test
     public void initializesGivenGolWithAGlider() {
-        underTest.start();
+        underTest.start(golBuilderSpy);
         verify(golBuilderSpy).addCell(1, 0);
         verify(golBuilderSpy).addCell(0, 1);
         verify(golBuilderSpy).addCell(-1, 1);
@@ -72,14 +70,12 @@ public class GolGliderBenchTest {
 
     @Test
     public void callsGivenGolAMillionTimes() {
-        underTest.start();
+        underTest.start(golBuilderSpy);
         verify(golSpy, times(1000000)).next();
     }
 
     @Test
     public void callsNextOnNewGenerations() {
-        // overwrite test object with different test object to use another gol
-        underTest = new GolGliderBench(new OnlyOnceCalledGolBuilder());
-        underTest.start();
+        underTest.start(new OnlyOnceCalledGolBuilder());
     }
 }

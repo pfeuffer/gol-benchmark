@@ -4,13 +4,10 @@ package de.pfeufferweb.gol.benchmark;
  * Initializes the given GOL with a simple glider and lets it fly.
  */
 public class GolGliderBench implements GolSingleBench {
-    private final GolBuilderAdapter golBuilderAdapter;
 
-    public GolGliderBench(GolBuilder golBuilder) {
-        this.golBuilderAdapter = new GolBuilderAdapter(golBuilder);
-    }
-
-    public void start() {
+    @Override
+    public void start(GolBuilder golBuilder) {
+        GolBuilderAdapter golBuilderAdapter = new GolBuilderAdapter(golBuilder);
         golBuilderAdapter.add(new int[][] { { 1, 0 }, { 0, 1 }, { -1, 1 },
                 { -1, 0 }, { -1, -1 } });
 

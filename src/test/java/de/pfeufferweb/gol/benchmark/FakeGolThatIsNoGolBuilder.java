@@ -1,5 +1,5 @@
 package de.pfeufferweb.gol.benchmark;
 
-public class FakeGolThatIsNoGol {
+public class FakeGolThatIsNoGolBuilder {
 
 }
