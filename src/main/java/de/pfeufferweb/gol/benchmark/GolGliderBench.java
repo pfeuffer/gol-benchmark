@@ -4,22 +4,26 @@ package de.pfeufferweb.gol.benchmark;
  * Initializes the given GOL with a simple glider and lets it fly.
  */
 public class GolGliderBench implements GolSingleBench {
-    private final GolBuilder golBuilder;
+    private final GolBuilderAdapter golBuilderAdapter;
 
     public GolGliderBench(GolBuilder golBuilder) {
-        this.golBuilder = golBuilder;
+        this.golBuilderAdapter = new GolBuilderAdapter(golBuilder);
     }
 
     public void start() {
-        golBuilder.addCell(1, 0);
-        golBuilder.addCell(0, 1);
-        golBuilder.addCell(-1, 1);
-        golBuilder.addCell(-1, 0);
-        golBuilder.addCell(-1, -1);
+        golBuilderAdapter.add(new int[][] { { 1, 0 }, { 0, 1 }, { -1, 1 },
+                { -1, 0 }, { -1, -1 } });
 
-        Gol nextGol = golBuilder.create();
-        for (int i = 0; i < 1000000; ++i) {
+        Gol nextGol = golBuilderAdapter.create();
+        long overallTime = 0;
+        for (int i = 1; i <= 1000000; ++i) {
+            long start = System.nanoTime();
             nextGol = nextGol.next();
+            long end = System.nanoTime();
+            overallTime += end - start;
+            if (i % 10000 == 0)
+                System.out.println(i + " in " + overallTime + " (avg: "
+                        + (overallTime / i) + ")");
         }
     }
 }

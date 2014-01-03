@@ -1,5 +1,6 @@
 package de.pfeufferweb.gol.benchmark;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -23,8 +24,8 @@ public class GolBenchTest {
     }
 
     @Test
-    public void createsABenchRunner() {
+    public void createsABenchRunnerWithoutStartingIt() {
         new GolBench("de.pfeufferweb.gol.benchmark.FakeGolBuilderSpy");
-        assertTrue("next not called", FakeGolBuilderSpy.createCalled);
+        assertFalse("next not called", FakeGolBuilderSpy.createCalled);
     }
 }

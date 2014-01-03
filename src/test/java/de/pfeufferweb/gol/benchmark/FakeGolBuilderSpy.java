@@ -7,6 +7,11 @@ public class FakeGolBuilderSpy implements GolBuilder {
         public Gol next() {
             return this;
         }
+
+        @Override
+        public boolean isAlive(int x, int y) {
+            return true;
+        }
     }
 
     static boolean instantiated = false;

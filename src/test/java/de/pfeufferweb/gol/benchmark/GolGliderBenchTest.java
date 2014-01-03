@@ -1,6 +1,7 @@
 package de.pfeufferweb.gol.benchmark;
 
 import static org.junit.Assert.fail;
+import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -23,6 +24,11 @@ public class GolGliderBenchTest {
             }
             nextCalled = true;
             return new OnlyOnceCalledGol();
+        }
+
+        @Override
+        public boolean isAlive(int x, int y) {
+            return true;
         }
     }
 
@@ -49,6 +55,7 @@ public class GolGliderBenchTest {
     public void inject() {
         initMocks(this);
         when(golSpy.next()).thenReturn(golSpy);
+        when(golSpy.isAlive(anyInt(), anyInt())).thenReturn(true);
         when(golBuilderSpy.create()).thenReturn(golSpy);
     }
 

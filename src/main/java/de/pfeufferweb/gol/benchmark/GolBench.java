@@ -9,7 +9,6 @@ public class GolBench {
             Class<GolBuilder> golClassUnderTest = (Class<GolBuilder>) Class
                     .forName(golClassName);
             golUnderTest = golClassUnderTest.getConstructor().newInstance();
-            run();
         } catch (ClassCastException e) {
             throw new IllegalGolInterfaceException();
         } catch (Exception e) {
@@ -18,7 +17,8 @@ public class GolBench {
     }
 
     public void run() {
-        new GolBenchRunner(new GolGliderBench(golUnderTest)).run();
+        new GolBenchRunner(new GolChecker(golUnderTest)).run();
+        // new GolBenchRunner(new GolGliderBench(golUnderTest)).run();
     }
 
     public static void main(String[] args) {
