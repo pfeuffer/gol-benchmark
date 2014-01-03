@@ -30,26 +30,6 @@ public class GolGliderBenchTest {
         public boolean isAlive(int x, int y) {
             return true;
         }
-
-        @Override
-        public int minX() {
-            return 0;
-        }
-
-        @Override
-        public int maxX() {
-            return 0;
-        }
-
-        @Override
-        public int minY() {
-            return 0;
-        }
-
-        @Override
-        public int maxY() {
-            return 0;
-        }
     }
 
     private static class OnlyOnceCalledGolBuilder implements GolBuilder {

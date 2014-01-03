@@ -17,25 +17,6 @@ public class ArrayRepresentationTest {
             return x == 3;
         }
 
-        @Override
-        public int minX() {
-            return 0;
-        }
-
-        @Override
-        public int maxX() {
-            return 0;
-        }
-
-        @Override
-        public int minY() {
-            return 0;
-        }
-
-        @Override
-        public int maxY() {
-            return 0;
-        }
     };
 
     @Test

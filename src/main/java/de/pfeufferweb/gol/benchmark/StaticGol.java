@@ -18,7 +18,6 @@ public class StaticGol implements Gol {
         return false;
     }
 
-    @Override
     public int minX() {
         if (cells.length == 0)
             return 0;
@@ -31,7 +30,6 @@ public class StaticGol implements Gol {
         return min;
     }
 
-    @Override
     public int maxX() {
         if (cells.length == 0)
             return 0;
@@ -44,7 +42,6 @@ public class StaticGol implements Gol {
         return max;
     }
 
-    @Override
     public int minY() {
         if (cells.length == 0)
             return 0;
@@ -57,7 +54,6 @@ public class StaticGol implements Gol {
         return min;
     }
 
-    @Override
     public int maxY() {
         if (cells.length == 0)
             return 0;
