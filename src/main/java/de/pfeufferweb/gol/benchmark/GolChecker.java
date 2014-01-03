@@ -16,6 +16,7 @@ public class GolChecker implements GolSingleBench {
         assertFirstIteration(firstIteration);
         Gol secondIteration = firstIteration.next();
         assertSecondIteration(secondIteration);
+        System.out.println("passed glider test");
     }
 
     private void assertFirstIteration(Gol gol) {

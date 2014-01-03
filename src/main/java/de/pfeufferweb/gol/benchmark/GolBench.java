@@ -22,10 +22,10 @@ public class GolBench {
 
     public void run(GolSingleBench golSingleBench) {
         new GolBenchRunner().run(golSingleBench, instantiateBuilder());
-        // new GolBenchRunner(new GolGliderBench(golUnderTest)).run();
     }
 
     public static void main(String[] args) {
         new GolBench(args[0]).run(new GolChecker());
+        new GolBench(args[0]).run(new GolGliderBench());
     }
 }
