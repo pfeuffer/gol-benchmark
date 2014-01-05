@@ -1,7 +1,13 @@
 package de.pfeufferweb.gol.benchmark;
 
+import java.util.ArrayList;
+import java.util.List;
+
 abstract class MeasuringBench implements GolSingleBench {
+    private static final int OVERALL_COUNT = 1000000;
+    private static final int BLOCK_SIZE = 10000;
     private final String name;
+    private final List<Long> timeForBlocks = new ArrayList<>();
 
     MeasuringBench(String name) {
         this.name = name;
@@ -13,15 +19,18 @@ abstract class MeasuringBench implements GolSingleBench {
         golBuilderAdapter.add(getStartPattern());
 
         Gol nextGol = golBuilderAdapter.create();
-        long overallTime = 0;
-        for (int i = 1; i <= 1000000; ++i) {
+        long timeForBlock = 0;
+        for (int i = 1; i <= OVERALL_COUNT; ++i) {
             long start = System.nanoTime();
             nextGol = nextGol.next();
             long end = System.nanoTime();
-            overallTime += end - start;
-            if (i % 10000 == 0)
-                System.out.println(name + ": " + i + " in " + overallTime
-                        + " (avg: " + (overallTime / i) + ")");
+            timeForBlock += end - start;
+            if (i % BLOCK_SIZE == 0) {
+                System.out.println(name + ": " + (i - BLOCK_SIZE) + "-" + i
+                        + " in " + timeForBlock + " (avg: "
+                        + (timeForBlock / i) + ")");
+                timeForBlocks.add(timeForBlock);
+            }
         }
     }
 
