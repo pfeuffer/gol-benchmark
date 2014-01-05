@@ -27,5 +27,6 @@ public class GolBench {
     public static void main(String[] args) {
         new GolBench(args[0]).run(new GolChecker());
         new GolBench(args[0]).run(new GolGliderBench());
+        new GolBench(args[0]).run(new GolRPentominoBench());
     }
 }
