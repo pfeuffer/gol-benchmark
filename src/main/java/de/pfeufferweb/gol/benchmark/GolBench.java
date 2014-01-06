@@ -28,5 +28,6 @@ public class GolBench {
         new GolBench(args[0]).run(new GolChecker());
         new GolBench(args[0]).run(new GolGliderBench());
         new GolBench(args[0]).run(new GolRPentominoBench());
+        new GolBench(args[0]).run(new GolInfiniteBench());
     }
 }
