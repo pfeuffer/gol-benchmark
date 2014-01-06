@@ -5,7 +5,7 @@ package de.pfeufferweb.gol.benchmark;
  */
 public class GolGliderBench extends MeasuringBench {
     public GolGliderBench() {
-        super("Glider");
+        super("Glider", 50000);
     }
 
     @Override

@@ -5,7 +5,7 @@ package de.pfeufferweb.gol.benchmark;
  */
 public class GolRPentominoBench extends MeasuringBench {
     public GolRPentominoBench() {
-        super("Pentomino");
+        super("Pentomino", 10000);
     }
 
     @Override

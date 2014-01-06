@@ -69,9 +69,9 @@ public class GolGliderBenchTest {
     }
 
     @Test
-    public void callsGivenGolAMillionTimes() {
+    public void callsGivenGolTheGivenTimes() {
         underTest.start(golBuilderSpy);
-        verify(golSpy, times(1000000)).next();
+        verify(golSpy, times(50000)).next();
     }
 
     @Test

@@ -5,7 +5,7 @@ package de.pfeufferweb.gol.benchmark;
  */
 public class GolInfiniteBench extends MeasuringBench {
     public GolInfiniteBench() {
-        super("Infinite");
+        super("Infinite", 30000);
     }
 
     @Override
